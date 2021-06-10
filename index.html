@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Calucator - MVC</title>
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/footer.min.css">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="calculator">
+            <input type="text" name="output" id="output" placeholder="Use buttons below or keyboard">
+            <div id="button-grid"></div>
+            <div id="operators"></div>
+        </div>
+
+        <footer class="down-buttons">
+            <button type="link" class="bton bton-down home-page-link shadow-mid-dark">
+              <a
+                href="https://codencja.herokuapp.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Home Page
+              </a>
+            </button>
+      
+            <div class="copyright">
+              &copy; 2021<i>&#160;by&#160;</i> Codencja
+            </div>
+            <button type="link" class="bton bton-down home-page-link shadow-mid-dark">
+              <a
+                href="https://github.com/kodencja/calc-mvc"
+                target="_blank"
+                rel="noreferrer"
+              >
+                See the code
+              </a>
+            </button>
+          </footer>
+    </div>
+
+<script src="js/model.js"></script>
+<script src="js/view.js"></script>
+<script src="js/controller.js"></script>
+
+</body>
+</html>

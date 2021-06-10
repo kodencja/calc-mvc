@@ -1,0 +1,133 @@
+@import "./mixin";
+
+%border-radius-thin {
+  border-radius: 0.25rem;
+}
+
+%text-center {
+  text-align: center;
+}
+
+%align-center {
+  align-items: center;
+}
+
+@mixin boxShadow($val1, $val2, $val3, $val4, $col) {
+  -ms-box-shadow: $val1 $val2 $val3 $val4 $col;
+  -o-box-shadow: $val1 $val2 $val3 $val4 $col;
+  box-shadow: $val1 $val2 $val3 $val4 $col;
+}
+
+
+.bton {
+  @include colorFn("font", #212529);
+  @extend %text-center;
+  @include colorFn("bgr", transparent);
+  @extend %border-radius-thin;
+  font: 400 13.3333px Arial;
+  align-items: flex-start;
+  text-indent: 0px;
+  text-shadow: none;
+  letter-spacing: normal;
+  word-spacing: normal;
+  writing-mode: horizontal-tb !important;
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  margin: 0;
+  font-family: inherit;
+  overflow: visible;
+  text-transform: none;
+  display: inline-block;
+  font-weight: 400;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  @include paddMrg("padding", 0.375rem, 0.75rem);
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &:hover {
+    color: #212529;
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: 0;
+    @include boxShadow(0, 0, 0, 0.2rem, rgba(0, 123, 255, 0.25));
+  }
+
+  &.disabled {
+    opacity: 0.65;
+  }
+}
+
+.bton-sm,
+.bton-group-sm > .bton {
+  @include paddMrg("padding", 0.25rem, 0.5rem);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  @extend %border-radius-thin;
+}
+
+.bton-down {
+  position: relative;
+  @include colorFn("bgr", rgba(139, 139, 139, 0.65));
+  @include colorFn("font", rgb(235, 235, 235));
+  @include paddMrg("padding", 10px, 10px);
+  font-size: 0.9rem;
+  line-height: 1.2;
+  border: none;
+  @extend %border-radius-thin;
+  @extend %align-center;
+
+  &:hover {
+    @include colorFn("bgr", rgba(126, 126, 126, 0.65));
+    @include colorFn("font", white);
+  }
+}
+
+.down-buttons {
+  @extend %align-center;
+  justify-content: space-between;
+  display: flex;
+  @include colorFn("font", white);
+  @include paddMrg("padding", 10px, 10px);
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+a {
+  text-decoration: none;
+  @include colorFn("font", white);
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.dev-box a {
+  @include colorFn("font", darkslategrey);
+  font-weight: 700;
+  float: right;
+
+  &:hover {
+    @include colorFn("font", rgb(60, 100, 100));
+  }
+}
+
+.home-page-link:hover > a {
+  @include colorFn("font", rgb(235, 235, 235));
+}
+
+.copyright {
+  @extend %text-center;
+}
+
+.shadow-mid-dark {
+  @include boxShadow(0, 5px, 20px, -6px, rgba(51, 51, 51, 1))
+}

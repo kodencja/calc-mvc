@@ -1,0 +1,175 @@
+@import "./mixin";
+@import "./vars";
+
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  @include paddMrg("margin", 0, 0);
+  @include paddMrg("padding", 0, 0);
+}
+
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  @include paddMrg("margin", 0, 0);
+  @include paddMrg("padding", 0, 0);
+}
+
+html {
+  font-family: "Roboto", "Arial", sans-serif;
+  position: relative;
+}
+
+body {
+  @include colorFn("bgr", seagreen);
+  min-height: 100vh;
+@include colorFn("font", #fff);
+}
+
+#wrapper {
+  @include paddMrg("padding", 10px, 20px);
+  max-width: 100%;
+}
+
+#calculator {
+  max-width: ((100% / 6) * 2.75);
+  border-radius: 5px;
+  overflow: hidden;
+@include paddMrg("padding", 5px);
+@include paddMrg("margin", "bottom", 3rem);
+@include align("text", center);
+@include align("items", center);
+  box-shadow: 0 5px 7px 5px rgb(40, 38, 47);
+@include colorFn("bgr", rgb(143, 143, 143));
+
+  position: relative;
+  @include paddMrg("margin", 15%, auto);
+
+  @include mediaQMaxW(1024px) {
+    max-width: ((100% / 6) * 3.5);
+  }
+
+  @include mediaQMaxW(826px) {
+    max-width: ((100% / 6) * 4);
+  }
+
+  @include mediaQMaxW(576px) {
+    max-width: ((100% / 6) * 5);
+  }
+
+  @include mediaQMaxW(476px) {
+    max-width: 95%;
+  }
+
+  @include mediaQMaxW(3000px, 826px) {
+    @include paddMrg("margin", 5%, auto);
+  }
+
+  .btn {
+    @include paddMrg("padding", 10px, 0);
+    @include colorFn("font", floralwhite);
+    font-weight: map-get($font-weights , "bold");
+    font-size: map-get($font-sizes, "medium");
+    border-radius: 15%;
+    @include colorFn("border", lightgray);
+    @include colorFn("bgr", rgb(33, 33, 37));
+    cursor: pointer;
+    @include mediaQMaxW(375px) {
+      font-size: map-get($font-sizes, "normal");
+      @include paddMrg("padding", 8px, 0);
+    }
+
+    @include mediaQMaxW(280px) {
+      font-size: map-get($font-sizes, "small");
+      @include paddMrg("padding", 6px, 0);
+    }
+
+    @include mediaQMaxW(260px) {
+      font-size: map-get($font-sizes, "extra-small");
+      @include paddMrg("padding", 5px, 0);
+    }
+
+    @include mediaQMaxH(280px) {
+      font-size: map-get($font-sizes, normal);
+      @include paddMrg("padding", 8px, 0);
+    }
+  }
+
+  #button-grid,
+  #operators {
+    float: left;
+    @include paddMrg("padding", 20px);
+
+    @include mediaQMaxW(826px) {
+        @include paddMrg("padding", 10px);
+    }
+
+    @include mediaQMaxW(576px) {
+        @include paddMrg("padding", 7px);
+    }
+
+    @include mediaQMaxW(360px) {
+        @include paddMrg("padding", 5px);
+    }
+  }
+
+  #button-grid {
+    width: 60%;
+    @include align("text", center);
+    @include paddMrg("padding", "left", 20px);
+
+    @include mediaQMaxW(360px) {
+        @include paddMrg("padding", "left", 10px);
+    }
+
+    .btn {
+      @include grid(3, 4%);
+      &:last-child {
+        @include lastBtnCenter(3, 4%);
+      }
+    }
+  }
+
+  #operators {
+    width: 40%;
+    @include align("text", left);
+    @include paddMrg("padding", "right", 20px);
+    @include mediaQMaxW(360px) {
+        @include paddMrg("padding", "right", 10px);
+    }
+
+    .operator {
+    @include colorFn("font", lavender);
+    @include colorFn("bgr", rgb(32, 41, 65));
+      border-radius: 50%;
+      @include grid(2, 3%);
+      &:last-child {
+        @include lastBtnCenter(2, 3%);
+      }
+    }
+  }
+
+  #output {
+    width: 92%;
+    @include paddMrg("padding", 10px, 10px);
+    @include paddMrg("margin", 10px, auto);
+    @include colorFn("font", #292929);
+    @include colorFn("bgr", rgb(215, 238, 238));
+    font-size: map-get($font-sizes, "large");
+    font-weight: map-get($font-weights, "thin");
+    @include align("text", right);
+
+    @include mediaQMaxW(576px){
+        font-size: map-get($font-sizes, "big");
+    }
+  }
+}
+
+::placeholder {
+  @include colorFn("font", gray);
+  font-size: map-get($font-sizes, "small" );
+}

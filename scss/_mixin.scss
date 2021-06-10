@@ -1,0 +1,113 @@
+@mixin grid($cols, $mrgn) {
+  float: left;
+  margin-right: $mrgn;
+  margin-bottom: $mrgn;
+
+  width: ((100% - (($cols - 1) * $mrgn)) / $cols);
+
+  &:nth-child(#{$cols}n) {
+    margin-right: 0;
+  }
+}
+
+@mixin lastBtnCenter($cols, $mrgn) {
+  margin-left: ((100% - (((100% - (($cols - 1) * $mrgn)) / $cols))) / 2);
+}
+
+@mixin mediaQMaxW($arg...) {
+    @if length($arg) == 2 {
+        @media screen and (max-width: nth($arg,1)) and (min-width: nth($arg, 2)) {
+            @content;
+          }
+    } @else {
+        @media screen and (max-width: $arg) {
+            @content;
+          }
+    }
+
+}
+
+@mixin mediaQMaxH($arg) {
+  @media screen and (max-height: $arg) {
+    @content;
+  }
+}
+
+// setting text-align or align-items
+@mixin align($prop, $val) {
+  @if ($prop) == "text" {
+    @if $val == "center" {
+      text-align: center;
+    } @else if $val == "right" {
+      text-align: right;
+    } @else if $val == "left" {
+        text-align: left;
+      } 
+  } @else if $prop == "items" {
+    @if $val == "center" {
+        align-items: center;
+      } @else if $val == "start" {
+        align-items: start;
+      } @else if $val == "end" {
+          align-items: end;
+        } 
+  }
+}
+
+// set baground or font color
+@mixin colorFn($prop, $color) {
+  @if $prop == "bgr" {
+    background-color: $color;
+  } @else if $prop == "font" {
+    color: $color;
+  } @else if $prop == "border" {
+    border-color: $color;
+  }
+}
+
+// set paddings or margins
+@mixin paddMrg($arg...) {
+  @if nth($arg, 1) == "padding" {
+    @if length($arg) == 5 {
+      padding-top: nth($arg, 2);
+      padding-right: nth($arg, 3);
+      padding-bottom: nth($arg, 4);
+      padding-left: nth($arg, 5);
+    } @else if length($arg) == 3 {
+      @if nth($arg, 2) == "left" {
+        padding-left: nth($arg, 3);
+      } @else if nth($arg, 2) == "right" {
+        padding-right: nth($arg, 3);
+      } @else if nth($arg, 2) == "top" {
+        padding-top: nth($arg, 3);
+      } @else if nth($arg, 2) == "bottom" {
+        padding-bottom: nth($arg, 3);
+      } @else {
+        padding: nth($arg, 2) nth($arg, 3);
+      }
+    } @else if length($arg) == 2 {
+      padding: nth($arg, 2) nth($arg, 2);
+    }
+  } @else if nth($arg, 1) == "margin" {
+    @if length($arg) == 5 {
+      margin-top: nth($arg, 2);
+      margin-right: nth($arg, 3);
+      margin-bottom: nth($arg, 4);
+      margin-left: nth($arg, 5);
+    } @else if length($arg) == 3 {
+      @if nth($arg, 2) == "left" {
+        margin-left: nth($arg, 3);
+      } @else if nth($arg, 2) == "right" {
+        margin-right: nth($arg, 3);
+      } @else if nth($arg, 2) == "top" {
+        margin-top: nth($arg, 3);
+      } @else if nth($arg, 2) == "bottom" {
+        margin-bottom: nth($arg, 3);
+      } @else {
+        margin: nth($arg, 2) nth($arg, 3);
+      }
+    } @else if length($arg) == 2 {
+      margin: nth($arg, 2) nth($arg, 2);
+    }
+  }
+} ;
