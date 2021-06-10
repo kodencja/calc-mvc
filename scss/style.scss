@@ -1,7 +1,6 @@
 @import "./mixin";
 @import "./vars";
 
-
 * {
   @extend %border-box;
   @include paddMrg("margin", 0, 0);
@@ -23,7 +22,7 @@ html {
 body {
   @include colorFn("bgr", seagreen);
   min-height: 100vh;
-@include colorFn("font", #fff);
+  @include colorFn("font", #fff);
 }
 
 #wrapper {
@@ -35,12 +34,12 @@ body {
   max-width: ((100% / 6) * 2.75);
   border-radius: 5px;
   overflow: hidden;
-@include paddMrg("padding", 5px);
-@include paddMrg("margin", "bottom", 3rem);
-@include align("text", center);
-@include align("items", center);
-  box-shadow: 0 5px 7px 5px rgb(40, 38, 47);
-@include colorFn("bgr", rgb(143, 143, 143));
+  @include paddMrg("padding", 5px);
+  @include paddMrg("margin", "bottom", 3rem);
+  @include align("text", center);
+  @include align("items", center);
+  @include boxShadow(0, 5px, 7px, 5px, rgba(40, 38, 47, 0.76));
+  @include colorFn("bgr", rgb(143, 143, 143));
 
   position: relative;
   @include paddMrg("margin", 15%, auto);
@@ -68,7 +67,7 @@ body {
   .btn {
     @include paddMrg("padding", 10px, 0);
     @include colorFn("font", floralwhite);
-    font-weight: map-get($font-weights , "bold");
+    font-weight: map-get($font-weights, "bold");
     font-size: map-get($font-sizes, "medium");
     border-radius: 15%;
     @include colorFn("border", lightgray);
@@ -101,15 +100,15 @@ body {
     @include paddMrg("padding", 20px);
 
     @include mediaQMaxW(826px) {
-        @include paddMrg("padding", 10px);
+      @include paddMrg("padding", 10px);
     }
 
     @include mediaQMaxW(576px) {
-        @include paddMrg("padding", 7px);
+      @include paddMrg("padding", 7px);
     }
 
     @include mediaQMaxW(360px) {
-        @include paddMrg("padding", 5px);
+      @include paddMrg("padding", 5px);
     }
   }
 
@@ -119,7 +118,7 @@ body {
     @include paddMrg("padding", "left", 20px);
 
     @include mediaQMaxW(360px) {
-        @include paddMrg("padding", "left", 10px);
+      @include paddMrg("padding", "left", 10px);
     }
 
     .btn {
@@ -135,12 +134,12 @@ body {
     @include align("text", left);
     @include paddMrg("padding", "right", 20px);
     @include mediaQMaxW(360px) {
-        @include paddMrg("padding", "right", 10px);
+      @include paddMrg("padding", "right", 10px);
     }
 
     .operator {
-    @include colorFn("font", lavender);
-    @include colorFn("bgr", rgb(32, 41, 65));
+      @include colorFn("font", lavender);
+      @include colorFn("bgr", rgb(32, 41, 65));
       border-radius: 50%;
       @include grid(2, 3%);
       &:last-child {
@@ -159,13 +158,13 @@ body {
     font-weight: map-get($font-weights, "thin");
     @include align("text", right);
 
-    @include mediaQMaxW(576px){
-        font-size: map-get($font-sizes, "big");
+    @include mediaQMaxW(576px) {
+      font-size: map-get($font-sizes, "big");
     }
   }
 }
 
 ::placeholder {
   @include colorFn("font", gray);
-  font-size: map-get($font-sizes, "small" );
+  font-size: map-get($font-sizes, "small");
 }
