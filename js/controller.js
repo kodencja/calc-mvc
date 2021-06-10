@@ -75,7 +75,7 @@ controller = {
     if (ifBtnSuits === true) {
       this.onClickEvent(button, e.key);
     } else {
-      console.log("ELSE");
+      //   console.log("ELSE");
       if (e.key === "=" || e.key === "Enter") {
         const findBtn = model.buttons.find(
           (sign) => sign.getAttribute("data-btn") === "equal"
