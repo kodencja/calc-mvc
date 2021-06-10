@@ -1,4 +1,5 @@
 @import "./mixin";
+@import "./vars";
 
 %border-radius-thin {
   border-radius: 0.25rem;
@@ -11,13 +12,6 @@
 %align-center {
   align-items: center;
 }
-
-@mixin boxShadow($val1, $val2, $val3, $val4, $col) {
-  -ms-box-shadow: $val1 $val2 $val3 $val4 $col;
-  -o-box-shadow: $val1 $val2 $val3 $val4 $col;
-  box-shadow: $val1 $val2 $val3 $val4 $col;
-}
-
 
 .bton {
   @include colorFn("font", #212529);
@@ -47,12 +41,7 @@
   font-size: 1rem;
   line-height: 1.5;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-
-  &:hover {
-    color: #212529;
-    text-decoration: none;
-  }
+  border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
   &:focus {
     outline: 0;
@@ -67,25 +56,26 @@
 .bton-sm,
 .bton-group-sm > .bton {
   @include paddMrg("padding", 0.25rem, 0.5rem);
-  font-size: 0.875rem;
   line-height: 1.5;
   @extend %border-radius-thin;
 }
 
 .bton-down {
   position: relative;
-  @include colorFn("bgr", rgba(139, 139, 139, 0.65));
-  @include colorFn("font", rgb(235, 235, 235));
+  @include colorFn("bgr", rgba(126, 126, 126, 0.65));
   @include paddMrg("padding", 10px, 10px);
-  font-size: 0.9rem;
+  font-size: map-get($font-sizes, "smallq");
   line-height: 1.2;
   border: none;
   @extend %border-radius-thin;
   @extend %align-center;
 
   &:hover {
-    @include colorFn("bgr", rgba(126, 126, 126, 0.65));
-    @include colorFn("font", white);
+    @include colorFn("bgr", rgba(119, 119, 119, 0.65));
+  }
+
+  &:hover a {
+    @include colorFn("font", rgb(241, 241, 241));
   }
 }
 
@@ -93,7 +83,7 @@
   @extend %align-center;
   justify-content: space-between;
   display: flex;
-  @include colorFn("font", white);
+  @include colorFn("font", rgb(241, 241, 241));
   @include paddMrg("padding", 10px, 10px);
   width: 100%;
   position: absolute;
@@ -103,25 +93,11 @@
 
 a {
   text-decoration: none;
-  @include colorFn("font", white);
+  @include colorFn("font", rgb(224, 224, 224));
 
   &:hover {
     text-decoration: none;
   }
-}
-
-.dev-box a {
-  @include colorFn("font", darkslategrey);
-  font-weight: 700;
-  float: right;
-
-  &:hover {
-    @include colorFn("font", rgb(60, 100, 100));
-  }
-}
-
-.home-page-link:hover > a {
-  @include colorFn("font", rgb(235, 235, 235));
 }
 
 .copyright {
