@@ -11,3 +11,9 @@ $font-sizes: (
   "big": 1.75rem,
   "large": 2.25rem,
 );
+
+%border-box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
