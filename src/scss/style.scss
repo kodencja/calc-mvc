@@ -20,7 +20,11 @@ html {
 }
 
 body {
-  @include colorFn("bgr", seagreen);
+  // @include colorFn("bgr", seagreen);
+  background: url("../img/river.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   min-height: 100vh;
   @include colorFn("font", #fff);
 }
@@ -38,8 +42,11 @@ body {
   @include paddMrg("margin", "bottom", 3rem);
   @include align("text", center);
   @include align("items", center);
-  @include boxShadow(0, 5px, 7px, 5px, rgba(40, 38, 47, 0.76));
-  @include colorFn("bgr", rgb(143, 143, 143));
+  @include boxShadow(0px, 3px, 10px, 10px, #c4dae4);
+  // @include boxShadow(0px, 3px, 10px, 10px, rgba(240, 252, 255, 0.76));
+  // @include boxShadow(0, 5px, 7px, 5px, rgba(40, 38, 47, 0.76));
+  // @include colorFn("bgr", rgb(143, 143, 143));
+  backdrop-filter: blur(10px);
 
   position: relative;
   @include paddMrg("margin", 15%, auto);
@@ -66,12 +73,17 @@ body {
 
   .btn {
     @include paddMrg("padding", 10px, 0);
-    @include colorFn("font", floralwhite);
+    @include colorFn("font", lavender);
+    // @include colorFn("bgr", floralwhite);
+    // @include colorFn("bgr", lavender);
     font-weight: map-get($font-weights, "bold");
     font-size: map-get($font-sizes, "medium");
     border-radius: 15%;
     @include colorFn("border", lightgray);
-    @include colorFn("bgr", rgb(33, 33, 37));
+    // @include colorFn("border", rgb(33, 33, 37));
+    // @include colorFn("bgr", rgb(0, 69, 71));
+    @include colorFn("bgr", #00042a);
+    // @include colorFn("bgr", #152207);
     cursor: pointer;
     @include mediaQMaxW(375px) {
       font-size: map-get($font-sizes, "normal");
@@ -139,7 +151,8 @@ body {
 
     .operator {
       @include colorFn("font", lavender);
-      @include colorFn("bgr", rgb(32, 41, 65));
+      // @include colorFn("bgr", rgb(32, 41, 65));
+      @include colorFn("bgr", #000600);
       border-radius: 50%;
       @include grid(2, 3%);
       &:last-child {
@@ -153,7 +166,7 @@ body {
     @include paddMrg("padding", 10px, 10px);
     @include paddMrg("margin", 10px, auto);
     @include colorFn("font", #292929);
-    @include colorFn("bgr", rgb(215, 238, 238));
+    @include colorFn("bgr", rgb(255, 255, 255));
     font-size: map-get($font-sizes, "large");
     font-weight: map-get($font-weights, "thin");
     @include align("text", right);

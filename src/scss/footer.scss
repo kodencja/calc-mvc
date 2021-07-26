@@ -41,7 +41,7 @@
   font-size: 1rem;
   line-height: 1.5;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-  border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
   &:focus {
     outline: 0;
@@ -102,8 +102,9 @@ a {
 
 .copyright {
   @extend %text-center;
+  @include colorFn("font", #000600);
 }
 
 .shadow-mid-dark {
-  @include boxShadow(0, 5px, 20px, -6px, rgba(51, 51, 51, 1))
+  @include boxShadow(0, 5px, 20px, -6px, rgba(51, 51, 51, 1));
 }
